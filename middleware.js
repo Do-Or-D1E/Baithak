@@ -1,14 +1,13 @@
-/*import { NextResponse } from "next/server";
-
-export function middleware(request) {
-  console.log(request);
-
-  return NextResponse.redirect(new URL("/about", request.url));
-}*/
-
+// middleware.js
 import { auth } from "@/lib/auth";
-export const middleware = auth;
+
+export default auth((req) => {
+  if (!req.auth && req.nextUrl.pathname.startsWith("/account")) {
+    const newUrl = new URL("/login", req.nextUrl.origin);
+    return Response.redirect(newUrl);
+  }
+});
 
 export const config = {
-  matcher: ["/account"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

@@ -1,9 +1,4 @@
-import NextAuth from "next-auth";
-import { authConfig } from "@/lib/auth";
+// app/api/auth/[...nextauth]/route.js
+import { handlers } from "@/lib/auth";
 
-// In this file, we can safely create the API handlers
-const {
-  handlers: { GET, POST },
-} = NextAuth(authConfig);
-
-export { GET, POST };
+export const { GET, POST } = handlers;
