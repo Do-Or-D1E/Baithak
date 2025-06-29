@@ -1,27 +1,10 @@
 import SideNavigation from "@/components/SideNavigation";
-import { auth } from "@/lib/auth";
-import SignInButton from "@/components/SignInButton";
-export const metadata = {
-  title: "Account",
-  description: "Account Baithak",
-};
-export default async function AccountLayout({ children }) {
-  const session = await auth();
+
+export default function Layout({ children }) {
   return (
-    <>
-      {session ? (
-        <div>
-          <div className="flex flex-row">
-            <SideNavigation />
-            {children}
-          </div>
-        </div>
-      ) : (
-        <div className="flex flex-col justify-center items-center mt-24">
-          <p className="text-2xl font-bold">Please sign in to continue</p>
-          <SignInButton />
-        </div>
-      )}
-    </>
+    <div className="grid grid-cols-[16rem_1fr] h-full gap-12">
+      <SideNavigation />
+      <div className="py-1">{children}</div>
+    </div>
   );
 }
