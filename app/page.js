@@ -1,6 +1,7 @@
 import Image from "next/image";
 import bg from "@/public/bg.png";
 import { auth } from "@/lib/auth";
+import Link from "next/link";
 
 export default async function Home() {
   const session = await auth();
@@ -19,9 +20,9 @@ export default async function Home() {
         <h1 className="text-8xl text-primary-50 mb-10 tracking-tight font-normal text-shadow">
           Welcome to paradise.
         </h1>
-        <a href="/cabins" className="text-shadow-sm">
+        <Link href="/cabins" className="text-shadow-sm">
           Explore luxury cabins/rooms
-        </a>
+        </Link>
       </div>
     </main>
   );
