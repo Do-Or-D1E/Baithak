@@ -14,6 +14,7 @@ export default async function Home() {
         quality={85}
         placeholder="blur"
         alt="Mountains and forests with two cabins"
+        className="object-cover object-top"
       />
 
       <div className="relative z-10 text-center">
