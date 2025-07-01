@@ -38,7 +38,7 @@ export default async function Header() {
                         height={32}
                         className="rounded-full"
                       />
-                      <p>Account</p>
+                      <p>Sign In</p>
                     </div>
                   </>
                 ) : (
